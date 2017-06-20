@@ -1,1 +1,9 @@
-<h1>Welcome <%= current_user.email %></h1>
+<h1>Welcome <%= @user.email %></h1>
+
+<div class="container-fluid">
+  <h3>Your To-Do List:</h3>
+    <div class="row">
+      <%= render '/items/item', locals: { user: @user } %>
+    </div>
+  <%= render '/items/form', item: Item.new, user: @user %>
+</div>

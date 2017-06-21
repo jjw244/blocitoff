@@ -14,5 +14,21 @@
   bottom: 0;
   width: 100%;
   height: 60px;
+  // text-align: center;
+}
+
+table {
+  counter-reset: rowNumber;
+}
+.count:before{
+counter-increment:rowNumber;
+content:counter(rowNumber);
+}
+
+th {
+  text-align: center;
+}
+
+td {
   text-align: center;
 }

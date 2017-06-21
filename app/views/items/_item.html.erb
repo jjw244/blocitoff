@@ -1,6 +1,21 @@
-<div class="container">
-  <% @user.items.each do |item| %>
-    <li id="item-<%= item.id%>"><%= item.name.capitalize %>
-    <%= link_to "", user_item_path(item.user, item.id), method: :delete, class: 'glyphicon glyphicon-ok', remote: true %>
-  <% end %>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Item #</th>
+      <th >Item Name</th>
+      <th>Remove Item</tH>
+      <th>Days left to complete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.items.each do |item| %>
+    <tr>
+      <td class="count"></td>
+      <td id="item-<%= item.id%>"><%= item.name.capitalize %></td>
+      <td><%= link_to "", user_item_path(item.user, item.id), method: :delete,
+        class: 'glyphicon glyphicon-ok', remote: true %></td>
+      <td><%= days_left(item) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

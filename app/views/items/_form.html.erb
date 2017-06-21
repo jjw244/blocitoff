@@ -1,8 +1,9 @@
 <h4>Add a To-Do List Item</h4>
 <%= form_for [user, item] do |f| %>
-<div class="form-group">
-  <%= f.label :name %>
+<div class="input-group">
   <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item here", autofocus: true %>
+ <span class="input-group-btn">
   <%= f.submit "Save", class: 'btn btn-success', remote: true %>
+</span>
 </div>
 <% end %>

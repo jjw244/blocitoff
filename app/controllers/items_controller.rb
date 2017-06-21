@@ -21,16 +21,16 @@ class ItemsController < ApplicationController
     @user = User.find(params[:user_id])
     @item = Item.find(params[:id])
     if @item.destroy
-      flash.now[:notice] = "Item: \"#{@item.name.capitalize}\" is Completed!"
-      # redirect_to :back
+      flash[:notice] = "Item: \"#{@item.name.capitalize}\" is Completed!"
+      redirect_to :back
     else
-      flash.now[:alert] = "There was an error marking off this item."
+      flash[:alert] = "There was an error marking off this item."
     end
 
-    respond_to do |format|
-      format.html #{ redirect_to user_path(:id), notice: "Item: \"#{@item.name.capitalize}\" is Completed!" }
-      format.js #{ flash[:notice] = "Item: \"#{@item.name.capitalize}\" is Completed!" }
-    end
+    # respond_to do |format|
+    #   format.html { redirect_to :back }
+    #   format.js #{ flash[:notice] = "Item: \"#{@item.name.capitalize}\" is Completed!" }
+    # end
   end
 
 

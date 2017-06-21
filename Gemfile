@@ -20,13 +20,11 @@ end
 group :development do
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
+  gem 'spring'
 end
 
 group :development, :test do
   gem 'byebug'
-  gem 'spring'
   gem 'rspec-rails', '~> 3.0.beta'
-  gem 'shoulda'
-  gem 'factory_girl_rails'
   gem 'pry-rails'
 end

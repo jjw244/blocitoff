@@ -12,10 +12,10 @@
       <ul class="nav nav-tabs">
         <li><%= link_to "Blocitoff", blocitoff_path %></li>
         <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "To-Do's", users_show_path %></li>
+        <li><%= link_to "To-Do's", user_path(:id) %></li>
         <div class="pull-right user-info">
           <% if user_signed_in? %>
-            Signed in as:<strong><%= @user.email %></strong> |
+            Signed in as:<strong><%= current_user.email %></strong> |
             <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> -
             <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
           <% else %>
@@ -24,9 +24,18 @@
           <% end %>
         </div>
       </ul>
-      <p class='notice'><%= notice %></p>
-      <p class='alert'><%= alert %></p>
-      <%= yield %>
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+    <%= yield %>
 
     </div>
   </body>

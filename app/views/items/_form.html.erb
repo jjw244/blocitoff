@@ -3,6 +3,6 @@
 <div class="form-group">
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control', placeholder: "Enter a new item here", autofocus: true %>
-  <%= f.submit "Save", class: 'btn btn-success' %>
+  <%= f.submit "Save", class: 'btn btn-success', remote: true %>
 </div>
 <% end %>

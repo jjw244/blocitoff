@@ -3,12 +3,11 @@
     <tr>
       <th>Item #</th>
       <th>Item Name</th>
-      <th>Remove Item</tH>
+      <th>Remove Item</th>
       <th>Days left to complete</th>
     </tr>
   </thead>
   <tbody>
-    <% @user.items.each do |item| %>
     <tr>
       <td class="count"></td>
       <td id="item-<%= item.id%>"><%= item.name.capitalize %></td>
@@ -16,6 +15,5 @@
         class: 'glyphicon glyphicon-ok', remote: true %></td>
       <td><%= days_left(item) %></td>
     </tr>
-    <% end %>
   </tbody>
 </table>

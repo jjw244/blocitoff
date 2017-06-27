@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.4'
 
 gem 'rails', '4.2.8'
 gem 'bootstrap-sass'
@@ -10,6 +11,7 @@ gem 'turbolinks'
 gem 'devise'
 gem 'figaro', '1.0'
 gem 'faker'
+gem 'puma'
 
 
 group :production do

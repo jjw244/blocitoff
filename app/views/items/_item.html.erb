@@ -1,19 +1,9 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>Item #</th>
-      <th>Item Name</th>
-      <th>Remove Item</th>
-      <th>Days left to complete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="count"></td>
-      <td id="item-<%= item.id%>"><%= item.name.capitalize %></td>
-      <td><%= link_to "", user_item_path(item.user, item.id), method: :delete,
-        class: 'glyphicon glyphicon-ok', remote: true %></td>
-      <td><%= days_left(item) %></td>
-    </tr>
-  </tbody>
-</table>
+<%= div_for(item) do %>
+  <tr>
+    <td class="count"></td>
+    <td id="item-<%= item.id%>"><%= item.name.capitalize %></td>
+    <td><%= link_to "", user_item_path(item.user, item.id), method: :delete,
+      class: 'glyphicon glyphicon-ok', remote: true %></td>
+    <td><%= days_left(item) %></td>
+  </tr>
+<%end%>

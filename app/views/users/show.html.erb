@@ -6,8 +6,18 @@
 
 <div class="container-fluid">
   <h3>Your To-Do List:</h3>
-    <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item #</th>
+          <th>Item Name</th>
+          <th>Remove Item</th>
+          <th>Days left to complete</th>
+        </tr>
+      </thead>
+      <tbody>
       <%= render current_user.items %>
-    </div>
-  <%= render '/items/form', item: Item.new, user: @user %>
+    </tbody>
+    </table>
+  <%= render '/items/form', item: Item.new %>
 </div>
